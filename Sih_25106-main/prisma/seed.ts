@@ -12,7 +12,7 @@ async function main() {
     create: {
       name: 'TechCorp',
       slug: 'techcorp',
-      logoUrl: 'https://via.placeholder.com/100x100?text=TC',
+      logoUrl: 'https://placehold.co/100x100?text=TC',
       website: 'https://techcorp.com',
       description: 'Innovating the future of technology, one line of code at a time.',
       verified: true
@@ -25,7 +25,7 @@ async function main() {
     create: {
       name: 'FinanceFirst',
       slug: 'financefirst',
-      logoUrl: 'https://via.placeholder.com/100x100?text=FF',
+      logoUrl: 'https://placehold.co/100x100?text=FF',
       website: 'https://financefirst.com',
       description: 'Your trusted partner in financial growth and stability.',
       verified: true
@@ -38,7 +38,7 @@ async function main() {
     create: {
       name: 'Consultia',
       slug: 'consultia',
-      logoUrl: 'https://via.placeholder.com/100x100?text=CO',
+      logoUrl: 'https://placehold.co/100x100?text=CO',
       website: 'https://consultia.com',
       description: 'Strategic consulting for the modern business landscape.',
       verified: true
@@ -52,7 +52,7 @@ async function main() {
     create: {
       email: 'alex.doe@university.edu',
       name: 'Alex Doe',
-      avatarUrl: 'https://via.placeholder.com/100x100?text=AD',
+      avatarUrl: 'https://placehold.co/100x100?text=AD',
       role: 'STUDENT'
     }
   });
@@ -63,7 +63,7 @@ async function main() {
     create: {
       email: 'e.reed@university.edu',
       name: 'Dr. Evelyn Reed',
-      avatarUrl: 'https://via.placeholder.com/100x100?text=ER',
+      avatarUrl: 'https://placehold.co/100x100?text=ER',
       role: 'MENTOR'
     }
   });
@@ -74,7 +74,7 @@ async function main() {
     create: {
       email: 'ben.carter@techcorp.com',
       name: 'Ben Carter',
-      avatarUrl: 'https://via.placeholder.com/100x100?text=BC',
+      avatarUrl: 'https://placehold.co/100x100?text=BC',
       role: 'RECRUITER'
     }
   });

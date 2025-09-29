@@ -45,7 +45,7 @@ export function JobSwipeCard({job, onApplicationSuccess, ...props}: JobSwipeCard
               <CardDescription className="text-gray-300">{job.company.name}</CardDescription>
             </div>
             <Image
-              src={job.company.logoUrl || `https://via.placeholder.com/60x60?text=${job.company.name.charAt(0)}`}
+              src={job.company.logoUrl || `https://placehold.co/60x60?text=${job.company.name.charAt(0)}`}
               alt={`${job.company.name} logo`}
               width={60}
               height={60}

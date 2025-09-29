@@ -159,7 +159,7 @@ export default function StudentDashboard() {
                     alt={`${app.job.company.name} logo`}
                     className="aspect-square rounded-md object-contain"
                     height="48"
-                    src={app.job.company.logoUrl || 'https://via.placeholder.com/40x40?text=' + app.job.company.name.charAt(0)}
+                    src={app.job.company.logoUrl || 'https://placehold.co/40x40?text=' + app.job.company.name.charAt(0)}
                     width="48"
                   />
                   <div className="grid gap-1 flex-1">
@@ -186,7 +186,7 @@ export default function StudentDashboard() {
                   alt={`${job.company.name} logo`}
                   className="aspect-square rounded-md object-contain"
                   height="48"
-                  src={job.company.logoUrl || 'https://via.placeholder.com/40x40?text=' + job.company.name.charAt(0)}
+                  src={job.company.logoUrl || 'https://placehold.co/40x40?text=' + job.company.name.charAt(0)}
                   width="48"
                 />
                 <div className="grid gap-1">

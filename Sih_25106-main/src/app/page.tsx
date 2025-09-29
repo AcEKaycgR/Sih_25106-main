@@ -1,39 +1,51 @@
 import Link from 'next/link';
 import {Button} from '@/components/ui/button';
 import {Card, CardContent} from '@/components/ui/card';
-import {GraduationCap, Briefcase, UserCheck, ArrowRight, Wrench} from 'lucide-react';
+import {GraduationCap, Briefcase, UserCheck, ArrowRight, Wrench, Brain, Target, Users, Zap, Shield, TrendingUp} from 'lucide-react';
 import Image from 'next/image';
 import {Logo} from '@/components/shared/logo';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const features = [
   {
-    icon: GraduationCap,
-    title: 'For Students',
-    description: 'Discover job opportunities, get AI-powered career advice, and track your applications seamlessly.',
+    icon: Brain,
+    title: 'AI-Powered Matching',
+    description: 'Our intelligent algorithms connect students with perfect job opportunities and mentors based on skills, interests, and career goals.',
   },
   {
-    icon: UserCheck,
-    title: 'For Mentors',
-    description: 'Guide the next generation by sharing opportunities, tracking student progress, and providing valuable insights.',
+    icon: Target,
+    title: 'Personalized Career Path',
+    description: 'Get customized career recommendations, skill gap analysis, and personalized learning paths to achieve your professional goals.',
   },
   {
-    icon: Briefcase,
-    title: 'For Recruiters',
-    description: 'Find top talent from universities, manage your hiring pipeline, and build your employer brand.',
+    icon: Users,
+    title: 'Comprehensive Network',
+    description: 'Join a thriving ecosystem of students, mentors, and recruiters across India, fostering meaningful professional relationships.',
+  },
+  {
+    icon: Zap,
+    title: 'Real-time Collaboration',
+    description: 'Instant messaging, video interviews, live mentoring sessions, and collaborative tools to accelerate your career growth.',
+  },
+  {
+    icon: Shield,
+    title: 'Secure & Trusted',
+    description: 'Enterprise-grade security ensuring your data privacy while maintaining transparency in all professional interactions.',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Analytics & Insights',
+    description: 'Track your progress with detailed analytics, application insights, and market trends to make informed career decisions.',
   },
 ];
 
 const DevTools = () => {
-  if (process.env.NODE_ENV !== 'development') {
-    return null;
-  }
   return (
     <Card className="fixed bottom-4 right-4 z-50 w-80">
       <CardContent className="p-4">
         <div className="flex items-center gap-2 mb-4">
           <Wrench className="h-5 w-5" />
-          <h4 className="font-semibold">Dev Tools</h4>
+          <h4 className="font-semibold">Quick Access</h4>
         </div>
         <div className="flex flex-col gap-2">
           <Button asChild size="sm" variant="outline">
@@ -81,8 +93,22 @@ export default function LandingPage() {
                     Find Your Zen in Career Success
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    JobZen India is your mindful path to career fulfillment - connecting talent with opportunity through a balanced ecosystem of students, mentors, and recruiters across India.
+                    JobZen India is your mindful path to career fulfillment - a comprehensive platform that harmoniously connects students, mentors, and recruiters across India through AI-powered matching, personalized guidance, and seamless collaboration tools.
                   </p>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 pt-4">
+                    <div className="flex items-center gap-2">
+                      <div className="h-2 w-2 bg-blue-500 rounded-full"></div>
+                      <span className="text-sm text-muted-foreground">10,000+ Students</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="h-2 w-2 bg-green-500 rounded-full"></div>
+                      <span className="text-sm text-muted-foreground">500+ Mentors</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="h-2 w-2 bg-purple-500 rounded-full"></div>
+                      <span className="text-sm text-muted-foreground">100+ Companies</span>
+                    </div>
+                  </div>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Button size="lg" asChild>
@@ -114,20 +140,67 @@ export default function LandingPage() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Connecting Ambition with Opportunity</h2>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Why Choose JobZen India?</h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Our platform provides dedicated tools for every stakeholder in the campus-to-career ecosystem, fostering growth and self-sufficiency.
+                  Experience the perfect blend of technology and human connection. Our platform is designed to create meaningful career relationships while providing cutting-edge tools for success in the modern job market.
                 </p>
+                <div className="flex items-center justify-center gap-8 mt-8 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-2">
+                    <div className="h-3 w-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+                    <span>AI-Powered</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="h-3 w-3 bg-gradient-to-r from-green-500 to-blue-500 rounded-full"></div>
+                    <span>Real-time</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="h-3 w-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
+                    <span>Secure</span>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:max-w-none lg:grid-cols-3 mt-12">
-              {features.map((feature) => (
-                <Card key={feature.title} className="p-6 flex flex-col items-center text-center">
-                  <feature.icon className="h-10 w-10 mb-4 text-primary" />
-                  <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground">{feature.description}</p>
+              {features.map((feature, index) => (
+                <Card key={feature.title} className="p-6 flex flex-col items-center text-center hover:shadow-lg transition-all duration-300 border-2 hover:border-primary/20 group">
+                  <div className="p-3 rounded-full bg-gradient-to-br from-primary/10 to-primary/5 mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <feature.icon className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">{feature.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
                 </Card>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-6 text-center">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Ready to Find Your Career Zen?</h2>
+                <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                  Join thousands of students, mentors, and recruiters who have found their perfect career match through JobZen India.
+                </p>
+              </div>
+              <div className="flex flex-col gap-4 min-[400px]:flex-row">
+                <Button size="lg" asChild className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70">
+                  <Link href="/role-select">
+                    Get Started Today
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <Link href="#features">
+                    Learn More
+                  </Link>
+                </Button>
+              </div>
+              <div className="flex items-center gap-8 mt-8 text-sm text-muted-foreground">
+                <span>✨ Free to use</span>
+                <span>🔒 Secure platform</span>
+                <span>🚀 AI-powered matching</span>
+              </div>
             </div>
           </div>
         </section>

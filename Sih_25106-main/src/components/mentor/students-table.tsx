@@ -94,7 +94,7 @@ export function StudentsTable({ students }: StudentsTableProps) {
                   alt="Student avatar"
                   className="aspect-square rounded-full object-cover"
                   height="48"
-                  src={`https://via.placeholder.com/48x48?text=${student.name.charAt(0)}`}
+                  src={`https://placehold.co/48x48?text=${student.name.charAt(0)}`}
                   width="48"
                 />
               </TableCell>

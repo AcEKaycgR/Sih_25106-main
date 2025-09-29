@@ -97,9 +97,6 @@ export function LoginForm() {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
 
-      // Get ID token for backend verification
-      const idToken = await user.getIdToken();
-
       // Register/sync user with PostgreSQL
       const response = await fetch('/api/auth/register', {
         method: 'POST',
@@ -107,7 +104,10 @@ export function LoginForm() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          idToken,
+          uid: user.uid,
+          email: user.email,
+          name: user.displayName,
+          picture: user.photoURL,
           role,
           profileData: {
             // We'll add profile completion later
