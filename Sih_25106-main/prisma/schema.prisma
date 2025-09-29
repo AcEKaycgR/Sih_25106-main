@@ -1,0 +1,168 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String   @id @default(cuid())
+  email       String   @unique
+  name        String
+  avatarUrl   String?
+  role        UserRole
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relationships
+  studentProfile   Student?
+  recruiterProfile Recruiter?
+  mentorProfile    Mentor?
+
+  @@map("users")
+}
+
+model Student {
+  id             String   @id @default(cuid())
+  userId         String   @unique
+  major          String
+  graduationYear Int
+  university     String
+  skills         String[]
+  resumeUrl      String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  // Relationships
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  applications Application[]
+  mentor       Mentor?       @relation(fields: [mentorId], references: [id])
+  mentorId     String?
+
+  @@map("students")
+}
+
+model Recruiter {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  companyId String
+  title     String
+  verified  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relationships
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  company Company @relation(fields: [companyId], references: [id])
+  jobs    Job[]
+
+  @@map("recruiters")
+}
+
+model Mentor {
+  id           String   @id @default(cuid())
+  userId       String   @unique
+  department   String
+  university   String
+  specialization String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relationships
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  students Student[]
+
+  @@map("mentors")
+}
+
+model Company {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  logoUrl     String?
+  website     String?
+  description String?
+  verified    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relationships
+  jobs       Job[]
+  recruiters Recruiter[]
+
+  @@map("companies")
+}
+
+model Job {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  location    String
+  type        JobType
+  skills      String[]
+  salary      String?
+  experience  String?
+  companyId   String
+  recruiterId String
+  status      JobStatus @default(ACTIVE)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  // Relationships
+  company      Company       @relation(fields: [companyId], references: [id])
+  recruiter    Recruiter     @relation(fields: [recruiterId], references: [id])
+  applications Application[]
+
+  @@map("jobs")
+}
+
+model Application {
+  id         String            @id @default(cuid())
+  studentId  String
+  jobId      String
+  status     ApplicationStatus @default(APPLIED)
+  appliedAt  DateTime          @default(now())
+  updatedAt  DateTime          @updatedAt
+  coverLetter String?
+  resumeUrl  String?
+
+  // Relationships
+  student Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  job     Job     @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  @@unique([studentId, jobId])
+  @@map("applications")
+}
+
+enum UserRole {
+  STUDENT
+  MENTOR
+  RECRUITER
+}
+
+enum JobType {
+  INTERNSHIP
+  FULL_TIME
+  PART_TIME
+  CONTRACT
+}
+
+enum JobStatus {
+  ACTIVE
+  CLOSED
+  DRAFT
+}
+
+enum ApplicationStatus {
+  APPLIED
+  UNDER_REVIEW
+  INTERVIEWING
+  OFFERED
+  REJECTED
+  WITHDRAWN
+}
