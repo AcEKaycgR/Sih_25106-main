@@ -2,6 +2,15 @@ import Image from 'next/image';
 import {LoginForm} from '@/components/auth/login-form';
 import {Logo} from '@/components/shared/logo';
 import {PlaceHolderImages} from '@/lib/placeholder-images';
+import {Suspense} from 'react';
+
+function LoginFormWithSuspense() {
+  return (
+    <Suspense fallback={<div className="flex justify-center"><div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div></div>}>
+      <LoginForm />
+    </Suspense>
+  );
+}
 
 export default function LoginPage() {
   const heroImage = PlaceHolderImages.find(p => p.id === 'login-hero');
@@ -19,7 +28,7 @@ export default function LoginPage() {
               Log in to continue to your JobZen India dashboard.
             </p>
           </div>
-          <LoginForm />
+          <LoginFormWithSuspense />
           <div className="mt-4 text-center text-sm">
             Don&apos;t have an account?{' '}
             <a href="#" className="underline">
