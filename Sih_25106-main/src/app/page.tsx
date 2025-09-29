@@ -69,7 +69,7 @@ export default function LandingPage() {
     const heroImage = PlaceHolderImages.find(p => p.id === 'landing-hero');
   return (
     <div className="flex flex-col min-h-dvh">
-      <header className="px-4 lg:px-6 h-16 flex items-center">
+      <header className="px-4 lg:px-6 h-16 flex items-center max-w-7xl mx-auto w-full">
         <Logo />
         <nav className="ml-auto flex gap-4 sm:gap-6">
           <Link href="#features" className="text-sm font-medium hover:underline underline-offset-4" prefetch={false}>
@@ -85,17 +85,17 @@ export default function LandingPage() {
       </header>
       <main className="flex-1">
         <section className="relative w-full pt-12 md:pt-24 lg:pt-32">
-          <div className="container px-4 md:px-6 space-y-8 lg:space-y-10">
-            <div className="grid gap-8 md:grid-cols-2 md:gap-16">
-              <div className="flex flex-col justify-center space-y-4">
+          <div className="container mx-auto px-4 md:px-6 space-y-8 lg:space-y-10 max-w-7xl">
+            <div className="grid gap-8 md:grid-cols-2 md:gap-16 items-center">
+              <div className="flex flex-col justify-center space-y-4 text-center md:text-left">
                 <div className="space-y-2">
                   <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-orange-400 via-white to-green-500">
                     Find Your Zen in Career Success
                   </h1>
-                  <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                  <p className="max-w-[600px] text-muted-foreground md:text-xl mx-auto md:mx-0">
                     JobZen India is your mindful path to career fulfillment - a comprehensive platform that harmoniously connects students, mentors, and recruiters across India through AI-powered matching, personalized guidance, and seamless collaboration tools.
                   </p>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 pt-4">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 pt-4 justify-items-center md:justify-items-start">
                     <div className="flex items-center gap-2">
                       <div className="h-2 w-2 bg-blue-500 rounded-full"></div>
                       <span className="text-sm text-muted-foreground">10,000+ Students</span>
@@ -110,7 +110,7 @@ export default function LandingPage() {
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center md:justify-start">
                   <Button size="lg" asChild>
                     <Link href="/role-select">
                       Join the Movement
@@ -119,7 +119,7 @@ export default function LandingPage() {
                   </Button>
                 </div>
               </div>
-              <div className="relative">
+              <div className="relative flex justify-center">
                 {heroImage && 
                     <Image
                         src={heroImage.imageUrl}
@@ -127,7 +127,7 @@ export default function LandingPage() {
                         data-ai-hint={heroImage.imageHint}
                         width={600}
                         height={400}
-                        className="mx-auto aspect-video overflow-hidden rounded-xl object-cover"
+                        className="mx-auto aspect-video overflow-hidden rounded-xl object-cover shadow-2xl"
                     />
                 }
                 <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent to-50%"></div>
@@ -137,14 +137,14 @@ export default function LandingPage() {
         </section>
 
         <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-muted/20">
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto px-4 md:px-6 max-w-7xl">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Why Choose JobZen India?</h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto">
                   Experience the perfect blend of technology and human connection. Our platform is designed to create meaningful career relationships while providing cutting-edge tools for success in the modern job market.
                 </p>
-                <div className="flex items-center justify-center gap-8 mt-8 text-sm text-muted-foreground">
+                <div className="flex flex-wrap items-center justify-center gap-8 mt-8 text-sm text-muted-foreground">
                   <div className="flex items-center gap-2">
                     <div className="h-3 w-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
                     <span>AI-Powered</span>
@@ -160,9 +160,9 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
-            <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:max-w-none lg:grid-cols-3 mt-12">
+            <div className="mx-auto grid max-w-6xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:max-w-none lg:grid-cols-3 mt-12 justify-items-center">
               {features.map((feature, index) => (
-                <Card key={feature.title} className="p-6 flex flex-col items-center text-center hover:shadow-lg transition-all duration-300 border-2 hover:border-primary/20 group">
+                <Card key={feature.title} className="p-6 flex flex-col items-center text-center hover:shadow-lg transition-all duration-300 border-2 hover:border-primary/20 group max-w-sm">
                   <div className="p-3 rounded-full bg-gradient-to-br from-primary/10 to-primary/5 mb-4 group-hover:scale-110 transition-transform duration-300">
                     <feature.icon className="h-8 w-8 text-primary" />
                   </div>
@@ -175,11 +175,11 @@ export default function LandingPage() {
         </section>
 
         <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5">
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto px-4 md:px-6 max-w-4xl">
             <div className="flex flex-col items-center justify-center space-y-6 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Ready to Find Your Career Zen?</h2>
-                <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                <p className="max-w-[600px] text-muted-foreground md:text-xl mx-auto">
                   Join thousands of students, mentors, and recruiters who have found their perfect career match through JobZen India.
                 </p>
               </div>
@@ -196,7 +196,7 @@ export default function LandingPage() {
                   </Link>
                 </Button>
               </div>
-              <div className="flex items-center gap-8 mt-8 text-sm text-muted-foreground">
+              <div className="flex flex-wrap items-center justify-center gap-8 mt-8 text-sm text-muted-foreground">
                 <span>✨ Free to use</span>
                 <span>🔒 Secure platform</span>
                 <span>🚀 AI-powered matching</span>
@@ -206,15 +206,17 @@ export default function LandingPage() {
         </section>
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-muted-foreground">&copy; 2024 JobZen India. All rights reserved.</p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <Link href="#" className="text-xs hover:underline underline-offset-4" prefetch={false}>
-            Terms of Service
-          </Link>
-          <Link href="#" className="text-xs hover:underline underline-offset-4" prefetch={false}>
-            Privacy
-          </Link>
-        </nav>
+        <div className="max-w-7xl mx-auto w-full flex flex-col gap-2 sm:flex-row items-center">
+          <p className="text-xs text-muted-foreground">&copy; 2024 JobZen India. All rights reserved.</p>
+          <nav className="sm:ml-auto flex gap-4 sm:gap-6">
+            <Link href="#" className="text-xs hover:underline underline-offset-4" prefetch={false}>
+              Terms of Service
+            </Link>
+            <Link href="#" className="text-xs hover:underline underline-offset-4" prefetch={false}>
+              Privacy
+            </Link>
+          </nav>
+        </div>
       </footer>
       <DevTools />
     </div>
